@@ -39,6 +39,14 @@ class apache {
   package { 'httpd':
     ensure => present,
   }
+
+  file { '/etc/httpd/conf/httpd.conf':
+    ensure => file,
+    owner => 'root',
+    group => 'root',
+    require => Package['httpd'],
+  }
+
   file { '/var/www':
     ensure => directory,
   }
@@ -51,5 +59,6 @@ class apache {
   }
   service { 'httpd':
     ensure => running,
+    subscribe => File['/etc/httpd/conf/httpd.conf'],
   }
 }
