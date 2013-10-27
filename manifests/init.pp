@@ -49,4 +49,7 @@ class apache {
     ensure => file,
     source => 'puppet:///modules/apache/index.html',
   }
+  service { 'httpd':
+    ensure => running,
+  }
 }
