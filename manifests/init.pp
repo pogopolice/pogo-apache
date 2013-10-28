@@ -42,6 +42,7 @@ class apache {
 
   file { '/etc/httpd/conf/httpd.conf':
     ensure => file,
+    source => 'puppet:///modules/apache/httpd.conf',
     owner => 'root',
     group => 'root',
     require => Package['httpd'],
