@@ -36,6 +36,13 @@
 # Copyright 2013 Your name here, unless otherwise noted.
 #
 class apache {
+
+  File {
+    owner => 'apache',
+    group => 'apache',
+    mode => '0644',
+  }
+
   package { 'httpd':
     ensure => present,
   }
