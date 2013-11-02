@@ -36,15 +36,14 @@
 # Copyright 2013 Your name here, unless otherwise noted.
 #
 class apache {
+  package { 'httpd':
+    ensure => present,
+  }
 
   File {
     owner => 'apache',
     group => 'apache',
     mode => '0644',
-  }
-
-  package { 'httpd':
-    ensure => present,
   }
 
   file { '/etc/httpd/conf/httpd.conf':
