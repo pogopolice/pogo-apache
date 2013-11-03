@@ -56,8 +56,8 @@ class apache {
     }
   }
   File {
-    owner => '$httpd_user',
-    group => '$httpd_group',
+    owner => $httpd_user,
+    group => $httpd_group,
     mode => '0644',
   }
   package { $httpd_pkg:
