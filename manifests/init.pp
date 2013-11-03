@@ -78,7 +78,8 @@ class apache {
   }
   file { '/var/www/html/index.html':
     ensure => file,
-    source => 'puppet:///modules/apache/index.html',
+    content => temlate('apache/index.html.erb'),
+#   source => 'puppet:///modules/apache/index.html',
   }
   service { $httpd_svc:
     ensure => running,
